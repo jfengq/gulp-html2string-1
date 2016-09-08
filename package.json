@@ -1,0 +1,50 @@
+{
+  "name": "gulp-html2string-1",
+  "version": "0.1.2",
+  "description": "Converts static HTML templates to JavaScript strings.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jfengq/html2string-1.git"
+  },
+  "private": false,
+  "keywords": [
+    "gulp",
+    "html",
+    "javascript",
+    "string",
+    "conversion"
+  ],
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfengq/html2string-1.git/issues"
+  },
+  "homepage": "https://github.com/jfengq/html2string-1.git",
+  "devDependencies": {
+    "mocha": "~1.20.1"
+  },
+  "dependencies": {
+    "gulp": "~3.8.1",
+    "gulp-util": "~2.2.17",
+    "html-minifier": "^0.6.2",
+    "map-stream": "^0.1.0",
+    "through2": "~0.5.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "readme": "gulp-html2string\n================\n[![Build Status](https://travis-ci.org/Rise-Vision/gulp-html2string.svg?branch=master)](https://travis-ci.org/Rise-Vision/gulp-html2string)\n\nA [Gulp](http://gulpjs.com/) plugin that converts static HTML templates to JavaScript strings.\n\nCode derived from [gulp-html2js](https://github.com/fraserxu/gulp-html2js).\n\n### Installation\n```bash\nnpm install gulp-html2string\n```\n\n## Usage\n\nIn your project's gulpfile.js, create the following task:\n\n```javascript\n\nvar html2string = require('gulp-html2string');\n\ngulp.task('html2js', function () {\n    return gulp.src('html/*.html')\n      .pipe(html2string({\n        base: path.join(__dirname, 'html'), //The base path of HTML templates\n        createObj: true, // Indicate wether to define the global object that stores\n                         // the global template strings\n        objName: 'TEMPLATES'  // Name of the global template store variable\n                              //say the converted string for myTemplate.html will be saved to TEMPLATE['myTemplate.html']\n      }))\n      .pipe(rename({extname: '.js'}))\n      .pipe(gulp.dest('templates/')); //Output folder\n  });\n\n```\n\nThen run\n```bash\ngulp html2js\n```\nand your converted JS files will be saved under ./templates/.\n\n## Tests\n\nRun\n```bash\nnpm run test\n```\n\nSee /test/test.js for an example usage.\n",
+  "readmeFilename": "README.md",
+  "gitHead": "92d399287e1f9ff7281dc05a70cb630a302d788c",
+  "_id": "gulp-html2string-1@0.1.2",
+  "_shasum": "badb5c0d448e06cc3e41654ea2e9aaf375204ad0",
+  "_from": "gulp-html2string-1@*"
+}
